@@ -309,38 +309,102 @@
 // // 2
 
 // ## Zadanie 6
-// --------------------------
 // Stwórz obiekt o nazwie **tableGenerator**.
 // Obiekt ten powinien mieć tylko metody:
-
 // 1. **randomNumber(min, max)**
-
 //     zwraca losową liczbę z przedziału `min`-`max`
-
 // 2. **generateIncTable(nr)**
-
 //     zwraca nową tablicę z liczbami od 0 do `nr`
-
 // 3. **generateRandomTable(lng, min, max)**
-
 //     zwraca nową tablice o długości `lng` z losowymi liczbami z przedziału `min`-`max`
-
 // 4. **generateTableFromText(str)**
-
 //     generuje nową tablicę ze słowami z tekstu `str`
 //     Jeżeli przekazany tekst nie jest tekstem, wtedy powinna być zwrócona pusta tablica
 //     Wykorzystaj odpowiednią metodę dla String
-
 // 5. **getMaxFromTable(arr)**
-
 //     zwraca największą liczbę z tablicy `arr`
-
 // 6. **getMinFromTable(arr)**
-
 //     zwraca najmniejszą liczbę z tablicy `arr`
-
 // 7. **delete(arr, index)**
 //     usuwa z tablicy `arr` element o indexie `index`
+
+// const tableGenerator = {
+//   randomNumber(min, max) {
+//     let result = Math.floor(Math.random() * (max - min + 1) + min);
+//     console.log(result);
+//     return result;
+//   },
+//   generateIncTable(nr) {
+//     let arrNumbers = [];
+//     for (let i = 0; i <= nr; i++) {
+//       arrNumbers.push(i);
+//     }
+//     console.log(arrNumbers);
+//     return arrNumbers;
+//   },
+//   generateRandomTable(lng, min, max) {
+//     let arrNumbRandom = [];
+//     for (let i = 0; i < lng; i++) {
+//       arrNumbRandom.push(Math.floor(Math.random() * (max - min + 1) + min));
+//     }
+//     console.log(arrNumbRandom);
+//     return arrNumbRandom;
+//   },
+//   generateTableFromText(str) {
+//     let arrWords = [];
+//     if (typeof str !== "string") {
+//       arrWords.length = 0;
+//     } else {
+//       arrWords.push(str.split(" "));
+//     }
+//     console.log(arrWords);
+//     return arrWords;
+//   },
+//   getMaxFromTable(arr) {
+//     arr.sort((a, b) => {
+//       return a - b;
+//     });
+//     let result = arr[arr.length - 1];
+//     console.log(result);
+//     return result;
+//   },
+//   getMinFromTable(arr) {
+//     arr.sort((a, b) => {
+//       return a - b;
+//     });
+//     let result = arr[0];
+//     console.log(result);
+//     return result;
+//   },
+//   delete(arr, index) {
+//     arr.splice(index, 1);
+//     console.log(arr);
+//     return arr;
+//   },
+//   //     usuwa z tablicy `arr` element o indexie `index`
+// };
+
+// tableGenerator.randomNumber(1, 10);
+// tableGenerator.randomNumber(1, 10);
+
+// tableGenerator.generateIncTable(5);
+
+// tableGenerator.generateRandomTable(6, 10, 30);
+// // [27, 19, 13, 13, 25, 20]
+
+// tableGenerator.generateTableFromText("marta is studying");
+// // ['marta', 'is', 'studying']
+// tableGenerator.generateTableFromText(4);
+// // []
+
+// // jako parametr podamy arrNumbRandom, czyli wynik poprzednije funkcji
+// tableGenerator.getMaxFromTable(tableGenerator.generateRandomTable(6, 10, 30));
+// // 27
+// tableGenerator.getMinFromTable(tableGenerator.generateRandomTable(6, 10, 30));
+// // 14
+
+// tableGenerator.delete([27, 19, 13, 13, 25, 20], 0);
+// // [19, 13, 13, 25, 20]
 
 // ## Zadanie 7
 // --------------------------
