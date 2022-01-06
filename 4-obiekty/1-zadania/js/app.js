@@ -219,37 +219,94 @@
 // console.log(spaceShip);
 
 // ## Zadanie 5
-// --------------------------
 // Stwórz obiekt **book**, który będzie miał:
-
 // #### Właściwości:
 // - **users**
 //     która będzie tablicą użytkowników (na początku pusta)
-
 // #### Metody:
 // - **addUser(name, age, phone)**
-
 //     która doda to tablicy `users` nowy obiekt, który będzie miał klucze:
 //     name, age, phone z przekazanymi do tej funkcji danymi
-
 // - **showUsers()**
-
 //     która po odpaleniu wypisze w konsoli tekst:
 //     `Wszyscy użytkownicy w książce` a następnie w pętli wypisze wszystkich użytkowników
-
 // - **findByName(name)**
-
 //     która wypisze w konsoli pierwszego użytkownika, który ma szukane imię
 //     lub `false` jeżeli nie znajdzie.
-
 // - **findByPhone(phone)**
-
 //     która wypisze w konsoli pierwszego użytkownika, który ma szukany telefon
 //     lub `false` jeżeli nie znajdzie
-
 // - **getCount()**
-
 //     która wypisze ile jest użytkowników w tabeli
+
+// const book = {
+//   users: [],
+//   addUser(name, age, phone) {
+//     this.users.push({ name, age, phone });
+//   },
+//   showUsers() {
+//     let usersName = [];
+//     let result = "";
+//     this.users.forEach((el) => {
+//       usersName.push(el.name);
+//     });
+//     let usersNameStr = usersName.join(", ");
+//     result = `Wszyscy użtwkownicy w ksążce ${usersNameStr}`;
+//     console.log(result);
+//     return result;
+//   },
+//   findByName(name) {
+//     let result = "";
+//     if (
+//       this.users.some((el) => {
+//         return el.name === name;
+//       })
+//     ) {
+//       result = name;
+//     } else {
+//       result = false;
+//     }
+//     console.log(result);
+//     return result;
+//   },
+//   findByPhone(phone) {
+//     let result = "";
+//     // petla po array
+//     this.users.forEach((el) => {
+//       // petla po obiketach w array
+//       for (let [key, val] of Object.entries(el)) {
+//         console.log(key, val);
+//         // name Marta, // age 38, // phone 668198176, //name Jola, // age 42 , // phone 667198176
+//         if (val === phone) {
+//           result = el.name;
+//         } else {
+//           result = false;
+//         }
+//       }
+//     });
+//     console.log(result);
+//     return result;
+//   },
+//   getCount() {
+//     let result = this.users.length;
+//     console.log(result);
+//     return result;
+//   },
+// };
+
+// // inviking addUser function to add users
+// book.addUser("Marta", "38", "668198176");
+// book.addUser("Jola", "42", "667198176");
+// // 0 {name: 'Marta', age: '38', phone: '668198176'}
+// // 1 {name: 'Jola', age: '42', phone: '667198176'}
+// book.showUsers();
+// // Wszyscy użtwkownicy w ksążce Marta, Jola
+// book.findByName("Marta");
+// // Marta
+// book.findByPhone("667198176");
+// // Jola
+// book.getCount();
+// // 2
 
 // ## Zadanie 6
 // --------------------------
