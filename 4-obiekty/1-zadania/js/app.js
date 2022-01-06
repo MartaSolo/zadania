@@ -95,7 +95,7 @@
 // jego klucze oraz ich wartości. Metoda ta nie powinna wypisywać tylko funkcji `showDetails()`.
 // Wypisywanie właściwości wykonaj za pomocą pętli `for in`, oraz pętli po kolekcjach `Object.keys()`, `Object.values()`, `Object.entries()`.
 
-// for in loop
+// // for in loop
 // const book = {
 //   title: "paradise",
 //   author: "Blake",
@@ -114,7 +114,7 @@
 
 // console.log(book.showDetails());
 
-// Object.keys()
+// // Object.keys()
 
 // const book = {
 //   title: "paradise",
@@ -131,37 +131,32 @@
 // };
 // console.log(book.showDetails());
 
-// Object.entires()
+// // Object.entires()
 
-const book = {
-  title: "paradise",
-  author: "Blake",
-  pageCount: 154,
-  publisher: "Anaconda",
-  showDetails: function () {
-    for (let [key, val] of Object.entries(this)) {
-      if (typeof this[key] !== "function") {
-        console.log(key + "-" + val);
-      }
-    }
-  },
-};
-console.log(book.showDetails());
+// const book = {
+//   title: "paradise",
+//   author: "Blake",
+//   pageCount: 154,
+//   publisher: "Anaconda",
+//   showDetails: function () {
+//     for (let [key, val] of Object.entries(this)) {
+//       if (typeof this[key] !== "function") {
+//         console.log(key + "-" + val);
+//       }
+//     }
+//   },
+// };
+// console.log(book.showDetails());
 
 // ## Zadanie 4
-// --------------------------
 // Stwórz prosty obiekt **spaceShip**, który będzie miał:
-
 // #### Właściwości:
 // - **name** ustawioną na Enterprise
 // - **currentLocation** ustawioną na Earth
 // - **flyDistance** ustawione na 0
-
 // #### Metody:
 // - **flyTo(place, distance)**, która ustawi obiektowi właściwość `currentLocation` na odpowiednie miejsce podane w parametrze `place` oraz doliczy przebyty dystans do `flyDistance`.
-
-// - Metodę **showInfo()**, która wypisze w konsoli tekst:
-
+// - **showInfo()**, która wypisze w konsoli tekst:
 //     ```
 //     Informacje o statku:
 //     ----
@@ -169,14 +164,59 @@ console.log(book.showDetails());
 //     doleciał do miejsca .....
 //     Statek przeleciał już całkowity dystans ....
 //     ```
-
-// - Metodę **meetClingon()**, która wykona 100 losowań 0-1. Jeżeli minimum połowa będzie pozytywna (większa niż połowa), wtedy powinna wypisać w konsoli:
-
+// - **meetClingon()**, która wykona 100 losowań 0-1. Jeżeli minimum połowa będzie pozytywna (większa niż połowa), wtedy powinna wypisać w konsoli:
 //     ```Statek .... będący w okolicy .... zwycięsko wyszedł ze spotkania z Klingonami```
-
 //     jeżeli jednak mniej niż połowa będzie pozytywna, powinien pojawić się żółty tekst w konsoli (console.alert)
-
 //     ```Statek .... będący w okolicy .... został pokonany przez Klingonów```
+
+// const spaceShip = {
+//   name: "Enterprise",
+//   currentLocation: "Earth",
+//   flyDistance: 0,
+//   flyTo(place, distance) {
+//     this.currentLocation = place;
+//     this.flyDistance += distance;
+//   },
+//   showInfo() {
+//     console.log(
+//       `Informacje o statku:
+// Statek ${this.name}
+// Doleciał do miejsca ${this.currentLocation}
+// Statek przeleciał już całkowity dystans ${this.flyDistance}`
+//     );
+//   },
+//   meetClingon() {
+//     let arrNumber = [];
+//     let arrNumber05 = [];
+//     for (let i = 0; i < 100; i++) {
+//       arrNumber.push(Math.random());
+//     }
+//     arrNumber05 = arrNumber.filter((el) => {
+//       return el > 0.5;
+//     });
+//     if (arrNumber05.length > 50) {
+//       return console.log(
+//         `Statek ${this.name} będący w okolicy ${this.currentLocation} zwycięsko wyszedł ze spotkania z Klingonami`
+//       );
+//     } else {
+//       return console.log(
+//         `Statek ${this.name} będący w okolicy ${this.currentLocation} został pokonany przez Klingonów`
+//       );
+//     }
+//   },
+// };
+
+// spaceShip.flyTo("Island of Moon", 540);
+// console.log(spaceShip.currentLocation, spaceShip.flyDistance);
+// // Island of Moon 540
+// spaceShip.showInfo();
+// // Informacje o statku:
+// // Statek Enterprise
+// // Doleciał do miejsca Island of Moon
+// // Statek przeleciał już całkowity dystans 540
+// spaceShip.meetClingon();
+// // Statek Enterprise będący w okolicy Island of Moon został pokonany przez Klingonów
+// console.log(spaceShip);
 
 // ## Zadanie 5
 // --------------------------
