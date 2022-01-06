@@ -89,14 +89,64 @@
 // console.log(currentUser);
 
 // ## Zadanie 3
-// --------------------------
 // Stwórz obiekt book, który będzie miał właściwości:
 // `title`, `author`, `pageCount`, `publisher`.
-
 // oraz metodę: `showDetails()`, która zrobi pętlę po tym obiekcie wypisując wszystkie
 // jego klucze oraz ich wartości. Metoda ta nie powinna wypisywać tylko funkcji `showDetails()`.
-
 // Wypisywanie właściwości wykonaj za pomocą pętli `for in`, oraz pętli po kolekcjach `Object.keys()`, `Object.values()`, `Object.entries()`.
+
+// for in loop
+// const book = {
+//   title: "paradise",
+//   author: "Blake",
+//   pageCount: 154,
+//   publisher: "Anaconda",
+//   showDetails: function () {
+//     for (let key in this) {
+//       if (this.hasOwnProperty(key)) {
+//         if (typeof this[key] !== "function") {
+//           console.log(`${key}: ${this[key]}`);
+//         }
+//       }
+//     }
+//   },
+// };
+
+// console.log(book.showDetails());
+
+// Object.keys()
+
+// const book = {
+//   title: "paradise",
+//   author: "Blake",
+//   pageCount: 154,
+//   publisher: "Anaconda",
+//   showDetails: function () {
+//     Object.keys(this).forEach((key) => {
+//       if (typeof this[key] !== "function") {
+//         console.log(`${key}: ${this[key]}`);
+//       }
+//     });
+//   },
+// };
+// console.log(book.showDetails());
+
+// Object.entires()
+
+const book = {
+  title: "paradise",
+  author: "Blake",
+  pageCount: 154,
+  publisher: "Anaconda",
+  showDetails: function () {
+    for (let [key, val] of Object.entries(this)) {
+      if (typeof this[key] !== "function") {
+        console.log(key + "-" + val);
+      }
+    }
+  },
+};
+console.log(book.showDetails());
 
 // ## Zadanie 4
 // --------------------------
