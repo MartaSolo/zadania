@@ -406,60 +406,74 @@
 // tableGenerator.delete([27, 19, 13, 13, 25, 20], 0);
 // // [19, 13, 13, 25, 20]
 
-// ## Zadanie 7
 // --------------------------
+// ## Zadanie 7
 // Stwórz obiekt o nazwie **text**. Obiekt ten powinien mieć metody:
+// 1. **check(txt, word)** - która zwraca `true/false` jeżeli w tekście `txt` znajduje się szukane słowo `word`
+//     check("ala ma kota", "kota") ---> true
+// 2. **getCount(txt)** - zwraca liczbę liter w tekście `txt`. Uwaga znaki interpunkcyjne też traktujmy jako litery
+//     getCount("ala ma kota") ---> 11
+// 3. **getWordsCount(txt)** - zwraca liczbę słów w przekazanym tekście
+//     getWordsCount("Ala ma kota") ---> 3
+// 4. **setCapitalize(txt)** - zwraca nowy tekst tak zamieniony, że każde słowo zaczyna się z dużej litery
+//     setCapitalize("ala ma kota") ---> "Ala Ma Kota"
+// 5. **setMix(txt)** - zwraca nowy tekst z naprzemiennie dużymi/małymi literami. Spację i znaki interpunkcyjne traktujemy jako litery.
+//     setMix("ala ma kota") ---> "aLa mA KoTa"
+// 6. **generateRandom(lng)** - generuje tekst o długości `lng`, który składa się z losowych liter
+//     generateRandom(10) ---> "dkjiuhtjox"
 
-// 1. **check(txt, word)**
+const text = {
+  check(txt, word) {
+    let arrTxt = txt.split(" ");
+    console.log(arrTxt);
+    let result = arrTxt.some((el) => {
+      return el === word;
+    });
+    console.log(result);
+    return result;
+  },
+  getCount(txt) {
+    let result = txt.length;
+    console.log(result);
+    return result;
+  },
+  getWordsCount(txt) {
+    let result = txt.split(" ").length;
+    console.log(result);
+    return result;
+  },
+  setCapitalize(txt) {
+    let arrTxt = txt.split(" ");
+    let arrTxtCap = arrTxt.map((el) => {
+      return (elCap = el.substring(0, 1).toUpperCase() + el.substring(1));
+    });
+    let result = arrTxtCap.join(" ");
+    console.log(result);
+    return result;
+  },
+  setMix(txt) {
+    let result = "";
+    let arrTxt = txt.split("");
+    let arrTxtCap = [];
+    console.log(arrTxt);
+    for (i = 0; i < arrTxt.length; i++) {
+      if (i % 2 === 0) {
+        arrTxtCap.push(arrTxt[i].toUpperCase());
+      } else {
+        arrTxtCap.push(arrTxt[i]);
+      }
+    }
+    console.log(arrTxt);
+    console.log(arrTxtCap);
+    result = arrTxtCap.join(" ");
+    console.log(result);
+    return result;
+  },
+};
 
-//     która zwraca `true/false` jeżeli w tekście `txt` znajduje się szukane słowo `word`
-
-//     ```
-//     check("ala ma kota", "kota")
-//     ---> true
-//     ```
-
-// 2. **getCount(txt)**
-
-//     Zwraca liczbę liter w tekście `txt`. Uwaga znaki interpunkcyjne też traktujmy jako litery
-
-//     ```
-//     getCount("ala ma kota")
-//     ---> 11
-//     ```
-
-// 3. **getWordsCount(txt)**
-
-//     zwraca liczbę słów w przekazanym tekście
-
-//     ```
-//     getWordsCount("Ala ma kota")
-//     ---> 3
-//     ```
-
-// 4. **setCapitalize(txt)**
-
-//     zwraca nowy tekst tak zamieniony, że każde słowo zaczyna się z dużej litery
-
-//     ```
-//     setCapitalize("ala ma kota")
-//     ---> "Ala Ma Kota"
-//     ```
-
-// 5. **setMix(txt)**
-
-//     zwraca nowy tekst z naprzemiennie dużymi/małymi literami. Spację i znaki interpunkcyjne traktujemy jako litery.
-
-//     ```
-//     setMix("ala ma kota")
-//     ---> "aLa mA KoTa"
-//     ```
-
-// 6. **generateRandom(lng)**
-
-//     Generuje tekst o długości `lng`, który składa się z losowych liter
-
-//     ```
-//     generateRandom(10)
-//     ---> "dkjiuhtjox"
-//     ```
+// console.log(object);
+text.check("Marta is studying", "are"); // false
+text.getCount("Marta is studying"); // 17
+text.getWordsCount("Marta is studying"); //
+text.setCapitalize("Marta is studying hard");
+text.setMix("Marta is studying hard");
