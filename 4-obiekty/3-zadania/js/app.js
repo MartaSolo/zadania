@@ -158,47 +158,69 @@
 // ---> "Ania-Beata-Marcin-Piotrek"
 // Wykorzystaj odpowiednie metody dzielące tekst na tablicę, sortujące tablicę i łączące ją w tekst.
 
-String.prototype.sortText = function (char) {
-  return this.split(char)
-    .sort((a, b) => {
-      return a.localeCompare(b);
-    })
-    .join(char);
-};
+// String.prototype.sortText = function (char) {
+//   return this.split(char)
+//     .sort((a, b) => {
+//       return a.localeCompare(b);
+//     })
+//     .join(char);
+// };
 
-const str1 = "Marcin-Ania-Piotrek-Beata";
-console.log(str1);
-// Marcin-Ania-Piotrek-Beata
-console.log(str1.sortText("-"));
-// Ania-Beata-Marcin-Piotrek
+// const str1 = "Marcin-Ania-Piotrek-Beata";
+// console.log(str1);
+// // Marcin-Ania-Piotrek-Beata
+// console.log(str1.sortText("-"));
+// // Ania-Beata-Marcin-Piotrek
 
-const str2 = new String("Marta-Alicja-Paweł-Benjamin");
-console.log(str2);
-// {'Marta-Alicja-Paweł-Benjamin'}
-console.log(str2.sortText("-"));
-// Alicja-Benjamin-Marta-Paweł
+// const str2 = new String("Marta-Alicja-Paweł-Benjamin");
+// console.log(str2);
+// // {'Marta-Alicja-Paweł-Benjamin'}
+// console.log(str2.sortText("-"));
+// // Alicja-Benjamin-Marta-Paweł
 
-// ## Zadanie 4
 // --------------------------
+// ## Zadanie 4
 // Rozbuduj obiekty typu String dodając im metodę **reverse()**, która po odpaleniu dla tekstu zwróci jego odbicie:
-
-// ```
 // "Ala ma kota".mirror() === "atok am alA"
 // ```
 
-// ## Zadanie 5
-// --------------------------
-// Rozbuduj obiekty typu Array o 2 nowe metody:
+const str1 = "Marta is studying";
+const arrStr1 = str1.split("").reverse();
+console.log(arrStr1);
+const strRev = arrStr1.join("");
+console.log(strRev);
 
+String.prototype.reverse = function () {
+  return this.split("").reverse().join("");
+};
+
+console.log(str1.reverse());
+// --------------------------
+
+// ## Zadanie 5
+// Rozbuduj obiekty typu Array o 2 nowe metody:
 // **sum()**
 // która użyta dla danej tablicy numerów zwraca jej sumę.
-
-// ```
 // [1,2,3].sum() === 6
-// ```
-
 // **sortNr()**
 // która poprawnie sortuje tablicę liczb
-
-// ```
 // [1,1.2,11,22,2.1].sortNr() === [1,1.2,2.1,11,22]
+
+const arr = [9, 7, 5, 2];
+
+Array.prototype.sum = function () {
+  let sum = 0;
+  this.forEach((el) => {
+    sum += el;
+  });
+  return sum;
+};
+
+Array.prototype.sortNr = function () {
+  return this.sort((a, b) => {
+    return a - b;
+  });
+};
+
+console.log(arr.sum());
+console.log(arr.sortNr());
