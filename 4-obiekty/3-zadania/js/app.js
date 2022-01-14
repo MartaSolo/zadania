@@ -184,17 +184,17 @@
 // "Ala ma kota".mirror() === "atok am alA"
 // ```
 
-const str1 = "Marta is studying";
-const arrStr1 = str1.split("").reverse();
-console.log(arrStr1);
-const strRev = arrStr1.join("");
-console.log(strRev);
+// const str1 = "Marta is studying";
+// const arrStr1 = str1.split("").reverse();
+// console.log(arrStr1);
+// const strRev = arrStr1.join("");
+// console.log(strRev);
 
-String.prototype.reverse = function () {
-  return this.split("").reverse().join("");
-};
+// String.prototype.reverse = function () {
+//   return this.split("").reverse().join("");
+// };
 
-console.log(str1.reverse());
+// console.log(str1.reverse());
 // --------------------------
 
 // ## Zadanie 5
@@ -206,21 +206,21 @@ console.log(str1.reverse());
 // która poprawnie sortuje tablicę liczb
 // [1,1.2,11,22,2.1].sortNr() === [1,1.2,2.1,11,22]
 
-const arr = [9, 7, 5, 2];
+// const arr = [9, 7, 5, 2];
 
-Array.prototype.sum = function () {
-  let sum = 0;
-  this.forEach((el) => {
-    sum += el;
-  });
-  return sum;
-};
+// Array.prototype.sum = function () {
+//   let sum = 0;
+//   this.forEach((el) => {
+//     sum += el;
+//   });
+//   return sum;
+// };
 
-Array.prototype.sortNr = function () {
-  return this.sort((a, b) => {
-    return a - b;
-  });
-};
+// Array.prototype.sortNr = function () {
+//   return this.sort((a, b) => {
+//     return a - b;
+//   });
+// };
 
-console.log(arr.sum());
-console.log(arr.sortNr());
+// console.log(arr.sum());
+// console.log(arr.sortNr());

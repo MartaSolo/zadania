@@ -6,12 +6,6 @@
 // gdzie każdy z nich będzie miał klucze: `id`, `name`, `surname`, `email`, `age`, `cash` pod które podstawisz kolejne dane z tablicy.
 // Spróbuj wykorzystać tutaj destrukturyzację.
 
-// ## Zadanie 2
-// Wykorzystaj powyższą funkcję do utworzenia nowej tablicy z obiektami, a następnie:
-// - wylicz ile pieniędzy mają wszyscy użytkownicy razem.
-// - wylicz średni wiek wszystkich użytkowników
-// - stwórz nową tablicę tylko z mailami. Wypisz ją w konsoli
-
 // ## Materiały:
 // https://kursjs.pl/kurs/obiekty/obiekty.php
 // https://kursjs.pl/kurs/obiekty/destructuring.php
@@ -34,3 +28,63 @@ const users = [
   [14, "Kimberli", "Berkeley", "kberkeleyd@merriam-webster.com", 19, 1994.97],
   [15, "Tawnya", "Illingworth", "tillingworthe@quantcast.com", 23, 1742.64],
 ];
+
+const fixData = (users) => {
+  const usersFixed = [];
+  users.map((el) => {
+    const user = {};
+
+    user.id = el[0];
+    user.name = el[1];
+    user.surname = el[2];
+    user.email = el[3];
+    user.age = el[4];
+    user.cash = el[5];
+
+    usersFixed.push(user);
+  });
+  return usersFixed;
+};
+
+console.log(fixData(users));
+
+// creating a new variable and assigning the result
+const usersFixed = fixData(users);
+
+console.log(usersFixed);
+
+// ## Zadanie 2
+// Wykorzystaj powyższą funkcję do utworzenia nowej tablicy z obiektami, a następnie:
+// - wylicz ile pieniędzy mają wszyscy użytkownicy razem.
+// - wylicz średni wiek wszystkich użytkowników
+// - stwórz nową tablicę tylko z mailami. Wypisz ją w konsoli
+
+// suma pieniedzy wszystkich użytkowników
+const usersCash = usersFixed.reduce((acc, curr) => {
+  return acc + curr.cash;
+}, 0);
+
+console.log(usersCash); // 17790.32
+
+// średni wiek wszystkich użytwników
+const averageAge = (usersFixed) => {
+  const sum = usersFixed.reduce((acc, curr) => {
+    return acc + curr.age;
+  }, 0);
+  return (sum / usersFixed.length).toFixed(2);
+};
+
+console.log(averageAge(usersFixed)); // 18.93
+
+// nowa tablica tylko z mailami
+
+const usersEmails = (usersFixed) => {
+  const emails = [];
+  usersFixed.forEach((el) => {
+    let email = el.email;
+    emails.push(email);
+  });
+  return emails;
+};
+
+console.log(usersEmails(usersFixed));
