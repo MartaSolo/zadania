@@ -19,73 +19,148 @@
 
 // Stwórz tablicę `users` i dodaj do niej 3 obiekty utworzone na bazie powyższej klasy. Poeksperymentuj z ich metodami.
 
-// function User(nick, name, surname, email, role) {
-//   this.nick = nick;
-//   this.name = name;
-//   this.surname = surname;
-//   this.email = email;
-//   this.role = role;
-//   this.loginDates = [];
-//   this.active = true;
-//   this.logIn = function () {
-//     this.loginDates.push(
-//       new Intl.DateTimeFormat("pl-PL", {
-//         dateStyle: "full",
-//         timeStyle: "long",
-//       }).format(new Date())
-//     );
-//   };
-//   this.showLoginDates = function () {
-//     this.loginDates.forEach((el) => {
-//       console.log(el);
-//     });
-//   };
-//   this.showDetails = function () {
-//     for (let [key, value] of Object.entries(this)) {
-//       if (typeof this[key] !== "function") {
-//         console.log(`${key} : ${value}`);
-//       }
+//-----------------Klasy-----------------------
+// class User {
+//   constructor(nick, name, surname, email, role) {
+//     this.nick = nick;
+//     this.name = name;
+//     this.surname = surname;
+//     this.email = email;
+//     this.role = role;
+//     this.loginDates = [];
+//     this.active = true;
+//   }
+//   logIn() {
+//     const date = new Intl.DateTimeFormat("pl-PL", {
+//       dateStyle: "full",
+//       timeStyle: "long",
+//     }).format(new Date());
+//     this.loginDates.push(date);
+//   }
+//   showLoginDates() {
+//     this.loginDates.forEach((el) => console.log(el));
+//   }
+//   showDetails() {
+//     for (let [key, val] of Object.entries(this)) {
+//       console.log(`${key} - ${val}`);
 //     }
-//   };
-//   this.toggleActive = function (active) {
+//   }
+//   toggleActive(active) {
 //     this.active = active;
-//   };
+//   }
 // }
 
-// const user1 = new User("star", "John", "Black", "jbalck@gmail.com", "admin");
-// // console.log(user1);
-// // User {nick: 'star', name: 'John', surname: 'Black', email: 'jbalck@gmail.com', role: 'admin', …}
-// user1.logIn();
+// const user1 = new User("stoner", "Ken", "Kyle", "stone@gmail.com", "editor");
+// console.log(user1);
 // user1.logIn();
 // user1.showLoginDates();
 // user1.showDetails();
 // user1.toggleActive(false);
-// console.log(user1.active);
+// console.log(user1);
 
-// const user2 = new User("cat", "Elle", "Blue", "eblue@gmail.com", "editor");
-// // console.log(user2);
-// // User {nick: 'cat', name: 'Elle', surname: 'Blue', email: 'eblue@gmail.com', role: 'user', …}
+// const user2 = new User(
+//   "flower",
+//   "Linda",
+//   "Brake",
+//   "flower@gmail.com",
+//   "reader"
+// );
+// console.log(user2);
 // user2.logIn();
 // user2.showLoginDates();
 // user2.showDetails();
 // user2.toggleActive(false);
-// console.log(user2.active);
+// console.log(user2);
 
-// const user3 = new User("bird", "Steve", "White", "swhite@gmail.com", "reader");
-// // console.log(user3);
-// // User {nick: 'bird', name: 'Steve', surname: 'White', email: 'swhite@gmail.com', role: 'user', …}
+// const user3 = new User(
+//   "sunshine",
+//   "Brad",
+//   "River",
+//   "sunchine@gmail.com",
+//   "admin"
+// );
+// console.log(user3);
 // user3.logIn();
 // user3.showLoginDates();
 // user3.showDetails();
 // user3.toggleActive(false);
-// console.log(user3.active);
+// console.log(user3);
 
+// // array with all created users
 // const users = [user1, user2, user3];
 // console.log(users);
-// // [User, User, User]
-// // 0: User {nick: 'star', name: 'John', surname: 'Black', email: 'jbalck@gmail.com', role: 'admin', …}
-// // 1: User {nick: 'cat', name: 'Elle', surname: 'Blue', email: 'eblue@gmail.com', role: 'editor', …}
-// // 2: User {nick: 'bird', name: 'Steve', surname: 'White', email: 'swhite@gmail.com', role: 'reader', …}
+
+// ---------konstruktor i prototypy------------
+function User(nick, name, surname, email, role) {
+  this.nick = nick;
+  this.name = name;
+  this.surname = surname;
+  this.email = email;
+  this.role = role;
+  this.loginDates = [];
+  this.active = true;
+}
+
+User.prototype.logIn = function () {
+  this.loginDates.push(
+    new Intl.DateTimeFormat("pl-PL", {
+      dateStyle: "full",
+      timeStyle: "long",
+    }).format(new Date())
+  );
+};
+
+User.prototype.showLoginDates = function () {
+  this.loginDates.forEach((el) => {
+    console.log(el);
+  });
+};
+
+User.prototype.showDetails = function () {
+  for (let [key, value] of Object.entries(this)) {
+    // if (typeof this[key] === "function") return;
+    console.log(`${key} : ${value}`);
+  }
+};
+
+User.prototype.toggleActive = function (active) {
+  this.active = active;
+};
+
+const user1 = new User("star", "John", "Black", "jbalck@gmail.com", "admin");
+console.log(user1);
+// User {nick: 'star', name: 'John', surname: 'Black', email: 'jbalck@gmail.com', role: 'admin', …}
+user1.logIn();
+user1.logIn();
+user1.showLoginDates();
+user1.showDetails();
+user1.toggleActive(false);
+console.log(user1.active);
+
+const user2 = new User("cat", "Elle", "Blue", "eblue@gmail.com", "editor");
+// console.log(user2);
+// User {nick: 'cat', name: 'Elle', surname: 'Blue', email: 'eblue@gmail.com', role: 'user', …}
+user2.logIn();
+user2.showLoginDates();
+user2.showDetails();
+user2.toggleActive(false);
+console.log(user2.active);
+
+const user3 = new User("bird", "Steve", "White", "swhite@gmail.com", "reader");
+// console.log(user3);
+// User {nick: 'bird', name: 'Steve', surname: 'White', email: 'swhite@gmail.com', role: 'user', …}
+user3.logIn();
+user3.showLoginDates();
+user3.showDetails();
+user3.toggleActive(false);
+console.log(user3.active);
+
+const users = [user1, user2, user3];
+console.log(users);
+// [User, User, User]
+// 0: User {nick: 'star', name: 'John', surname: 'Black', email: 'jbalck@gmail.com', role: 'admin', …}
+// 1: User {nick: 'cat', name: 'Elle', surname: 'Blue', email: 'eblue@gmail.com', role: 'editor', …}
+// 2: User {nick: 'bird', name: 'Steve', surname: 'White', email: 'swhite@gmail.com', role: 'reader', …}
 
 // --------------------------
 // ## Zadanie 2
